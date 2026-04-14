@@ -2,23 +2,24 @@
 
 - Abra o terminal (cmd)
 
-  ´´´cmd
+  ```cmd
 
   python -m venv venv
 
-  ´´´
+  ```
 
 - Para ativar o ambiente virtual
 
-  ´´´cmd
+  ```cmd
 
   venv\Scripts\activate
 
-  ´´´
-  - Para desativar o ambiente virtual
+  ```
 
-  ´´´cmd
+- Para desativar o ambiente virtual
+
+  ```cmd
 
   deactivate
 
-  ´´´
+  ```
