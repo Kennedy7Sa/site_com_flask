@@ -23,3 +23,14 @@
   deactivate
 
   ```
+
+- Usando um html base usando o {% block nome %} {% endblock %} , pra torar os htmls mais padronizados
+
+  ```html
+  {% extends 'base.html' %} {% block body %}
+  <div>
+    <h1>Comunidade impressionadora</h1>
+    <p>Teste de paragrafo</p>
+  </div>
+  {% endblock %}
+  ```
