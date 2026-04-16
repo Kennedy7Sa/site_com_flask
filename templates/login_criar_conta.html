@@ -1,14 +1,52 @@
 {% extends 'base.html' %} {% block body %}
 <div class="container">
+  <h1>Faça login ou crie sua conta !</h1>
+  <hr />
   <div class="row">
     <div class="col">
-      <h1>Login</h1>
-      {{ formLogin.username }} {{ formLogin.email }} {{ formLogin.senha }} {{
-      formLogin.confirmacao }}
+      <legend>Login</legend>
+      <form method="POST" action="" class="border p-4 mt-5">
+        <fieldset>
+          <div class="form-group">
+            {{ formLogin.email.label(class="form-control-label") }} {{
+            formLogin.email(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ formLogin.senha.label(class="form-control-label") }} {{
+            formLogin.senha(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ formLogin.lembrar_dados.label(class="form-check-label") }} {{
+            formLogin.lembrar_dados(class="form-check-input") }}
+          </div>
+        </fieldset>
+        {{ formLogin.botao_submit_logar(class="btn btn-primary mt-2") }}
+      </form>
     </div>
     <div class="col">
-      <h1>Criar conta</h1>
-      {{ formCriarConta}}
+      <legend>Criar conta</legend>
+      <form method="POST" action="" class="border p-4 mt-5">
+        <fieldset>
+          <div class="form-group">
+            {{ formCriarConta.username.label(class="form-control-label") }} {{
+            formCriarConta.username(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ formCriarConta.email.label(class="form-control-label") }} {{
+            formCriarConta.email(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ formCriarConta.senha.label(class="form-control-label") }} {{
+            formCriarConta.senha(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ formCriarConta.confirmacao.label(class="form-control-label") }}
+            {{ formCriarConta.confirmacao(class="form-control") }}
+          </div>
+        </fieldset>
+        {{ formCriarConta.botao_submit_criarConta(class="btn btn-primary mt-2")
+        }}
+      </form>
     </div>
   </div>
 </div>
