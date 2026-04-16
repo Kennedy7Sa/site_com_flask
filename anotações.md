@@ -34,3 +34,10 @@
   </div>
   {% endblock %}
   ```
+
+- criar um token aleatorio com o python
+
+  ```python
+  import secrets
+  secrets.token_hex(16)
+  ```

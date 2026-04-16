@@ -1,7 +1,9 @@
 from flask import Flask,render_template, url_for
+from forms import FormLogin,FormCriarConta
 
 app = Flask(__name__)
 lista_usuarios = ['kennedy', 'mateus','jonatan']
+app.config['SECRET_KEY'] = 'a3ff4c3b25f04b163a48caa8afc3e869'
 
 
 @app.route('/')
@@ -18,7 +20,9 @@ def usuarios():
 
 @app.route('/login_criarconta')
 def loginCriarConta():
-    return render_template('login_criar_conta.html')
+    formLogin = FormLogin()
+    formCriarConta = FormCriarConta()
+    return render_template('login_criar_conta.html',formCriarConta=formCriarConta,formLogin=formLogin)
 
 if __name__ == '__main__':
     app.run(debug=True) #toda mudança ja é implementada sempre que houver uma edição 
