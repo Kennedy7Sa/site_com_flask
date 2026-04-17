@@ -6,10 +6,24 @@
     <div class="col">
       <legend>Login</legend>
       <form method="POST" action="" class="border p-4 mt-5">
+        {{ formLogin.csrf_token}}
         <fieldset>
           <div class="form-group">
-            {{ formLogin.email.label(class="form-control-label") }} {{
-            formLogin.email(class="form-control") }}
+            {{ formLogin.email.label(class="form-control-label") }}          
+              
+            {% if formLogin.email.errors %}              
+                {{ formLogin.email(class="form-control is-invalid needs-validation") }}
+                <div class="invalid-feedback">
+                {% for erro in formLogin.email.errors %}
+                  {{ erro }}
+                {% endfor %}
+                </div>
+            
+           
+            {% else %}
+              {{ formLogin.email(class="form-control") }}
+            {% endif %}
+           
           </div>
           <div class="form-group">
             {{ formLogin.senha.label(class="form-control-label") }} {{
@@ -26,6 +40,7 @@
     <div class="col">
       <legend>Criar conta</legend>
       <form method="POST" action="" class="border p-4 mt-5">
+        {{ formCriarConta.csrf_token}}
         <fieldset>
           <div class="form-group">
             {{ formCriarConta.username.label(class="form-control-label") }} {{
@@ -44,8 +59,7 @@
             {{ formCriarConta.confirmacao(class="form-control") }}
           </div>
         </fieldset>
-        {{ formCriarConta.botao_submit_criarConta(class="btn btn-primary mt-2")
-        }}
+        {{ formCriarConta.botao_submit_criarConta(class="btn btn-primary mt-2") }}
       </form>
     </div>
   </div>
