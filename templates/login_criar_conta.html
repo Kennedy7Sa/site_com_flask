@@ -9,25 +9,38 @@
         {{ formLogin.csrf_token}}
         <fieldset>
           <div class="form-group">
-            {{ formLogin.email.label(class="form-control-label") }}          
-              
-            {% if formLogin.email.errors %}              
-                {{ formLogin.email(class="form-control is-invalid needs-validation") }}
-                <div class="invalid-feedback">
-                {% for erro in formLogin.email.errors %}
-                  {{ erro }}
-                {% endfor %}
-                </div>
-            
-           
+            {{ formLogin.email.label(class="form-control-label") }}
+
+            {% if formLogin.email.errors %}
+            {{ formLogin.email(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+              {% for erro in formLogin.email.errors %}
+              {{ erro }}
+              {% endfor %}
+            </div>
             {% else %}
-              {{ formLogin.email(class="form-control") }}
+            {{ formLogin.email(class="form-control") }}
             {% endif %}
-           
+
           </div>
           <div class="form-group">
-            {{ formLogin.senha.label(class="form-control-label") }} {{
-            formLogin.senha(class="form-control") }}
+            {{ formLogin.senha.label(class="form-control-label") }}
+
+            {% if formLogin.senha.errors %}
+            {{ formLogin.senha(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+              {% for erro in formLogin.senha.errors %}
+              {{ erro }}
+              {% endfor %}
+            </div>
+
+
+            {% else %}
+            {{ formLogin.senha(class="form-control") }}
+            {% endif %}
+
+
+
           </div>
           <div class="form-group">
             {{ formLogin.lembrar_dados.label(class="form-check-label") }} {{
@@ -37,6 +50,14 @@
         {{ formLogin.botao_submit_logar(class="btn btn-primary mt-2") }}
       </form>
     </div>
+
+
+
+
+
+
+
+
     <div class="col">
       <legend>Criar conta</legend>
       <form method="POST" action="" class="border p-4 mt-5">
@@ -47,16 +68,48 @@
             formCriarConta.username(class="form-control") }}
           </div>
           <div class="form-group">
-            {{ formCriarConta.email.label(class="form-control-label") }} {{
-            formCriarConta.email(class="form-control") }}
+            {{ formCriarConta.email.label(class="form-control-label") }}
+            {% if formCriarConta.email.errors %}
+            {{ formCriarConta.email(class="form-control is-invalid needs-validation") }}
+            <div class="invalid-feedback">
+              {% for erro in formCriarConta.email.errors %}
+              {{ erro }}
+              {% endfor %}
+            </div>
+
+
+            {% else %}
+            {{ formCriarConta.email(class="form-control") }}
+            {% endif %}
+
+
           </div>
           <div class="form-group">
-            {{ formCriarConta.senha.label(class="form-control-label") }} {{
-            formCriarConta.senha(class="form-control") }}
+            {{ formCriarConta.senha.label(class="form-control-label") }}
+            {% if formCriarConta.senha.errors %}
+            {{ formCriarConta.senha(class="form-control is-invalid needs-validation") }}
+            <div class="invalid-feedback">
+              {% for erro in formCriarConta.senha.errors %}
+              {{ erro }}
+              {% endfor %}
+            </div>
+
+            {% else %}
+            {{ formCriarConta.senha(class="form-control") }}
+            {% endif %}
           </div>
           <div class="form-group">
             {{ formCriarConta.confirmacao.label(class="form-control-label") }}
+            {% if formCriarConta.confirmacao.errors %}
+            {{ formCriarConta.confirmacao(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+              {% for erro in formCriarConta.confirmacao.errors %}
+              {{ erro }}
+              {% endfor %}
+            </div>
+            {% else %}
             {{ formCriarConta.confirmacao(class="form-control") }}
+            {% endif %}
           </div>
         </fieldset>
         {{ formCriarConta.botao_submit_criarConta(class="btn btn-primary mt-2") }}
