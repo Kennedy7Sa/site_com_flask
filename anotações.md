@@ -41,3 +41,15 @@
   import secrets
   secrets.token_hex(16)
   ```
+
+- Criando um arquivo de requisitos (mostrando todas a libs utilizadas )
+
+  ```cmd
+  pip freeze > requirements.txt
+  ```
+
+- Pra instalar as bibliotecas necessarias para rodar o projeto basta todar o arquivo dentro da Venv, ele vai baixar as bibliotecas do arquivo de requirements
+
+  ```cmd
+  pip install -r requirements.txt
+  ```
