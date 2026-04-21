@@ -16,5 +16,5 @@ class Post(database.Model):
     titulo = database.Column(database.String,nullable = False)
     corpo = database.Column(database.Text,nullable = False)
     data_criacao = database.Column(database.DateTime,nullable= False, default = datetime.utcnow )
-    id_Usuario = database.Column(database.Integer,database.ForeignKey('usuario.id'),nullable=False) #informando a chave estrangeira
+    id_usuario = database.Column(database.Integer,database.ForeignKey('usuario.id'),nullable=False) #informando a chave estrangeira
    
