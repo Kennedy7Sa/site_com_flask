@@ -1,4 +1,4 @@
-from main import app,database 
+from comunidadeimpressionadora import app,database 
 from comunidadeimpressionadora.models import Usuario,Post
 
 

@@ -1,6 +1,7 @@
 from flask import render_template,redirect,url_for,flash,request
 from comunidadeimpressionadora.forms import FormCriarConta,FormLogin
-from comunidadeimpressionadora import app
+from comunidadeimpressionadora import app , database , Bcrypt
+from comunidadeimpressionadora.models import Usuario,Post
 
 lista_usuarios = ['kennedy', 'mateus','jonatan']
 
@@ -29,6 +30,15 @@ def loginCriarConta():
         # e voltar pra pagina inicial (import o redirect)
         return redirect(url_for('home'))
     if formCriarConta.validate_on_submit() and 'botao_submit_criarConta' in request.form:
+        #criptografando a senha 
+        senha_cript = Bcrypt.generate_password_hash(formCriarConta.senha.data) 
+        #criar um usuario(estancia da classe usuario)
+        usuario1 = Usuario(username = formCriarConta.username.data,email=formCriarConta.email.data,senha=senha_cript)
+        #adciono sessao 
+        database.session.add(usuario1)
+        #faço o comit
+        database.session.commit()
+        
         flash(f'Conta criada com sucesso com o email {formCriarConta.email.data}','alert-success')
         return redirect(url_for('home'))
 
