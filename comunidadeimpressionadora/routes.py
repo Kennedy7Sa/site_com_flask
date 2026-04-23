@@ -2,7 +2,7 @@ from flask import render_template,redirect,url_for,flash,request
 from comunidadeimpressionadora.forms import FormCriarConta,FormLogin
 from comunidadeimpressionadora import app , database , bcrypt
 from comunidadeimpressionadora.models import Usuario,Post
-from flask_login import login_user
+from flask_login import login_user,logout_user , current_user
 
 lista_usuarios = ['kennedy', 'mateus','jonatan']
 
@@ -55,3 +55,22 @@ def loginCriarConta():
 
 
     return render_template('login_criar_conta.html',formCriarConta=formCriarConta,formLogin=formLogin)
+
+
+#parte do usuario logado 
+@app.route('/sair')
+def sair():
+    logout_user()
+    flash('Logout feito com sucesso','alert-success')
+    return redirect(url_for('home'))
+
+
+@app.route('/perfil')
+def perfil():
+    return render_template('perfil.html')
+
+@app.route('/post/criar')
+def criar_post():
+    return render_template('criarpost.html')
+    
+
