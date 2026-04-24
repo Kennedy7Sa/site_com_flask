@@ -12,9 +12,9 @@
 </head>
 
 <body>
-  <!-- usando o include para incluir outras paginas html ao html em uso  -->
-  {% include 'navbar.html' %} {% block body %} {% endblock %}
 
+  <!-- usando o include para incluir outras paginas html ao html em uso  -->
+  {% include 'navbar.html' %}
   <!-- colocando as mensagens em todas as paginas pro flash -->
   <div class="container">{% with mensagens = get_flashed_messages(with_categories=True) %}
     {% if mensagens %}
@@ -26,6 +26,15 @@
     {% endif %}
     {% endwith %}
   </div>
+
+  {% block body %}
+
+
+
+
+  {% endblock %}
+
+
 
 
 
