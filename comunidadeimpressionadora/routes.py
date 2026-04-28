@@ -103,6 +103,19 @@ def salvar_imagem(imagem):
              
             #mudar a foto de perfil do usuario 
     return nome_arquivo
+
+def atualizar_cursos(formulario):
+    lista_cursos = []
+    for campo in formulario:
+        if campo.data:
+            if 'curso_' in campo.name:
+                lista_cursos.append(campo.label.text)
+           
+    return ';'.join(lista_cursos)
+
+
+
+
 @app.route('/perfil/editar',methods=['GET','POST'])
 @login_required
 def editarPerfil():
@@ -113,6 +126,7 @@ def editarPerfil():
         if form.foto_perfil.data:
             nome_imagem = salvar_imagem(form.foto_perfil.data)
             current_user.foto_perfil = nome_imagem
+        current_user.cursos = atualizar_cursos(form)
             
         database.session.commit()
         flash('Perfil atualizado com sucesso ','alert-success')
