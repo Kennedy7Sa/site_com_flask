@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm #pra criar o formulario 
 from wtforms import StringField,PasswordField,SubmitField,BooleanField # criar campos do formulario 
+from flask_wtf.file import FileField, FileAllowed
 from wtforms.validators import DataRequired,Length,Email,ValidationError,EqualTo #validar campos 
 from comunidadeimpressionadora.models import Usuario
 from flask_login import current_user
@@ -28,6 +29,13 @@ class FormLogin(FlaskForm):
 class FormEditarPerfil(FlaskForm):
     username= StringField('Nome de usuario',validators=[DataRequired()])
     email= StringField('Digite seu email',validators=[DataRequired(),Email()])
+    foto_perfil = FileField('Atualizar foto de perfil', validators=[FileAllowed(['jpg','png'])])
+    curso_excel = BooleanField("Excel impressionador")
+    curso_vba = BooleanField("vba impressionador")
+    curso_powerbi = BooleanField("power bi impressionador")
+    curso_ppt = BooleanField("ppt impressionador")
+    curso_python = BooleanField("python impressionador")
+    curso_sql = BooleanField("sql impressionador")
     botao_submit_editarPerfil = SubmitField('Confirmar edição')
     
     def validate_email(self,email):
