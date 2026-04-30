@@ -19,7 +19,7 @@ from comunidadeimpressionadora.models import Usuario,Post
 #     database.session.commit()
 
 #************************ Buscando dados 
-# with app.app_context():
+with app.app_context():
 #     #pegrando todos os usuarios 
 #     meus_usuarios = Usuario.query.all()
 #     print(meus_usuarios)
@@ -29,8 +29,8 @@ from comunidadeimpressionadora.models import Usuario,Post
 #     print(meu_usuario.username)
 #     print(meu_usuario.email)
 #     #filtrando por argumento 
-#     usuario_teste = Usuario.query.filter_by(id=1).first()
-#     print(usuario_teste.email)
+    usuario_teste = Usuario.query.filter_by(email='kennedyarruda30@gmail.com' ).first()
+    print(usuario_teste.cursos)
 
 
 # **************************** Criando um post
@@ -50,7 +50,7 @@ from comunidadeimpressionadora.models import Usuario,Post
 #     print(post.autor.username) #pegando dados da tabela usuario que esta relacionada a tabela de posts 
 
 #### resetando o banco 
-with app.app_context():
-    database.drop_all() #para excluir o banco e todas as tabelas 
-    database.create_all()
+# with app.app_context():
+#     database.drop_all() #para excluir o banco e todas as tabelas 
+#     database.create_all()
 
