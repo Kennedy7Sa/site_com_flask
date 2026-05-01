@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm #pra criar o formulario 
-from wtforms import StringField,PasswordField,SubmitField,BooleanField # criar campos do formulario 
+from wtforms import StringField,PasswordField,SubmitField,TextAreaField,BooleanField # criar campos do formulario 
 from flask_wtf.file import FileField, FileAllowed
 from wtforms.validators import DataRequired,Length,Email,ValidationError,EqualTo #validar campos 
 from comunidadeimpressionadora.models import Usuario
@@ -43,3 +43,9 @@ class FormEditarPerfil(FlaskForm):
             usuario = Usuario.query.filter_by(email= email.data).first()
             if usuario:
                 raise ValidationError('Esse email já esxiste ! coloque outro email para edição')
+            
+
+class FormCriarPost(FlaskForm):
+    titulo = StringField('Titulo do post',validators=[DataRequired(),Length(2,140)])
+    corpo = TextAreaField('Escreva seu post aqui',validators=[DataRequired()])
+    botao_submit = SubmitField('Criar post')
