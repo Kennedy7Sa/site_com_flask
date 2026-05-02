@@ -13,7 +13,7 @@ from PIL import Image
 
 @app.route('/')
 def home():
-    posts = Post.query.all()
+    posts = Post.query.order_by(Post.id.desc())
     return render_template('home.html',posts=posts) #usando render_template para chamar o arquivo html 
 
 @app.route('/contato')
