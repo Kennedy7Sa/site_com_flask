@@ -1,4 +1,3 @@
-
 from comunidadeimpressionadora import app
 
 

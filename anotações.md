@@ -53,3 +53,7 @@
   ```cmd
   pip install -r requirements.txt
   ```
+  - Apagar o ambiente virtual 
+  ```cmd
+  rmdir /s /q venv
+  ```
