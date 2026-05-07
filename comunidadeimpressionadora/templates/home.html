@@ -21,7 +21,9 @@
       </div>
     </div>
     <div class="col-9">
-      <h3>{{ post.titulo }}</h3>
+      <a style="text-decoration: none;" href="{{ url_for('exibir_post',post_id = post.id) }}">
+        <h3>{{ post.titulo }}</h3>
+      </a>
       <p>{{ post.corpo }}</p>
     </div>
   </div>
